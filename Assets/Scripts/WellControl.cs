@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WellControl
+public class WellControl : MonoBehaviour
 {
     #region Consts
 

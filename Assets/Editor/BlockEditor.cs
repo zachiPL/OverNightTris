@@ -11,7 +11,7 @@ public class BlockEditor : Editor
         base.OnInspectorGUI();
         if (GUILayout.Button("Rotate!"))
         {
-            (target as BlockBehaviour).Rotate();
+            (target as BlockBehaviour).Rotate(null);
         }
         if (GUILayout.Button("Normalize!"))
         {
