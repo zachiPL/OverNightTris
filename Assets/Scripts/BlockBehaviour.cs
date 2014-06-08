@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class BlockBehaviour : MonoBehaviour
 {
@@ -12,7 +13,14 @@ public class BlockBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-	    
+        //Block is falling down...
+        this.InvokeRepeating("Falling", .5f, .5f);
+
+    }
+
+    void Falling()
+    {
+        this.OnTurn(BlockControl.Instance.well);
     }
 
     /// <summary>
@@ -154,9 +162,26 @@ public class BlockBehaviour : MonoBehaviour
         }
     }
 
-    void Dissolve()
+    void Dissolve(WellControl well)
     {
-
+        foreach (GameObject g in this.inner)
+        {
+            try
+            {
+                well.AddBlock(
+                    Mathf.FloorToInt(this.transform.position.x + g.transform.localPosition.x), 
+                    Mathf.FloorToInt(this.transform.position.y + g.transform.localPosition.y)
+                );
+                //well.Well[Mathf.FloorToInt(this.transform.position.x + g.transform.localPosition.x), Mathf.FloorToInt(this.transform.position.y + g.transform.localPosition.y)] = 1;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                //GameOver!
+            }
+        }
+        well.WhenDropped();
+        GameObject.Destroy(this.gameObject);
+        BlockControl.Instance.CurrentBlock = BlockControl.Instance.NextBlock().GetComponent<BlockBehaviour>();
     }
 
     /// <summary>
@@ -182,6 +207,10 @@ public class BlockBehaviour : MonoBehaviour
         if (canMoveBottom)
         {
             this.transform.localPosition = new Vector2(this.transform.localPosition.x, this.transform.localPosition.y - 1);
+        }
+        else
+        {
+            this.Dissolve(BlockControl.Instance.well);
         }
     }
 

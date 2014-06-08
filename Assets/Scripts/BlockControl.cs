@@ -13,6 +13,7 @@ public class BlockControl : MonoBehaviour
     public GameObject[] BlockPrefabs;
     public GameObject RememberBlock = null;
     public BlockBehaviour CurrentBlock;
+    public WellControl well;
 
     public static BlockControl Instance;
 
