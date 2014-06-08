@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class WellControl : MonoBehaviour
 {
@@ -63,12 +64,19 @@ public class WellControl : MonoBehaviour
 
     public bool PositionTaken(int x, int y)
     {
-        if (x < 0 || y < 0 || x > WELL_WIDTH)
+        if (x < 0 || y < 0 || x >= WELL_WIDTH)
         {
             return true;
         }
-             
-        return Well[x, y] > 0;
+        try
+        {
+            return Well[x, y] > 0;
+        }
+        catch (Exception e)
+        {
+            Debug.Log("INDEX: " + x + ", " + y);
+            return false;
+        }
     }
 
 }

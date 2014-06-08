@@ -27,56 +27,50 @@ public class BlockBehaviour : MonoBehaviour
             {
                 if (g.transform.localPosition.x == 0)
                 {
-                    if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.x + 3)))
+                    if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.y + 3)))
                     {
                         CanRotate = false;
                     }
-                    //g.transform.localPosition = new Vector2(g.transform.localPosition.y, 3);
                 }
                 else if (g.transform.localPosition.x == 1)
                 {
                     if (alterRotation)
                     {
-                        if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.x + 1)))
+                        if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.y + 1)))
                         {
                             CanRotate = false;
                         }
-                        //g.transform.localPosition = new Vector2(g.transform.localPosition.y, 1);
                     }
                     else
                     {
-                        if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.x + 2)))
+                        if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.y + 2)))
                         {
                             CanRotate = false;
                         }
-                        //g.transform.localPosition = new Vector2(g.transform.localPosition.y, 2);
                     }
                 }
                 else if (g.transform.localPosition.x == 3)
                 {
-                    if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.x)))
+                    if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.y)))
                     {
                         CanRotate = false;
                     }
-                    //g.transform.localPosition = new Vector2(g.transform.localPosition.y, 0);
                 }
                 else if (g.transform.localPosition.x == 2)
                 {
                     if (alterRotation)
                     {
-                        if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.x + 2)))
+                        if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.y + 2)))
                         {
                             CanRotate = false;
                         }
-                        //g.transform.localPosition = new Vector2(g.transform.localPosition.y, 2);
                     }
                     else
                     {
-                        if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.x + 1)))
+                        if (well.PositionTaken(Mathf.FloorToInt(this.transform.localPosition.x + g.transform.localPosition.y), Mathf.FloorToInt(this.transform.localPosition.y + 1)))
                         {
                             CanRotate = false;
                         }
-                        //g.transform.localPosition = new Vector2(g.transform.localPosition.y, 1);
                     }
                 }
             }
